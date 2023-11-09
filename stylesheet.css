@@ -1,0 +1,84 @@
+html{
+    height: 100%;
+    margin: 0;
+}
+body{
+    height: 100%;
+    margin: 0;
+}
+#mainWrapper{
+    height: 100%;
+    margin: 0px;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 240px  1fr;
+    grid-template-rows: repeat(2, 60px) 1fr;
+    grid-gap: 5px;
+
+    grid-template-areas: 
+    "header header"
+    "sideMenu opciones"
+    "sideMenu contentWrapper"
+    ;
+}
+
+.header{
+    background-color: rgb(129, 129, 129);;
+    grid-area: header;
+}
+
+.opciones{
+    background-color: green;
+    grid-area: opciones;
+}
+
+.sideMenu{
+    background-color: black;
+    grid-area: sideMenu;
+}
+
+.contentWrapper{
+    margin: 0px;
+    padding: 0px;
+    background-color: yellow;
+    grid-area: contentWrapper;
+    overflow: auto;
+    scrollbar-gutter: stable;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 5px;
+    justify-content: space-evenly;
+    align-items: start;
+    justify-items: center;
+}
+
+.content{
+    border-radius: 5px;
+    aspect-ratio: 16/9;
+    width: 90%;
+    max-width: 600px;
+
+    border-style: solid;
+    background-color: beige;
+    margin: 5px;
+
+}
+
+@media screen and  (max-width: 641px) {
+    #mainWrapper{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 60px) 1fr;
+        grid-gap: 5px;
+        background-color: blue;
+        grid-template-areas: 
+        "header"
+        "contentWrapper"
+        "contentWrapper"
+        ;
+    }
+    .sideMenu, .opciones{
+        display: none;
+    }
+
+
+}
